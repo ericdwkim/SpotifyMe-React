@@ -1,25 +1,33 @@
 {
   "name": "vite-reactts-eslint-prettier",
   "version": "0.0.0",
+  "proxy": "http://127.0.0.1:5000",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
+    "start-api": "cd api &&  .venv/bin/flask run ",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
     "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
     "lint": "yarn lint:format && yarn lint:fix ",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "dev": "concurrently \"yarn start\" \"yarn start-api\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "@types/react-redux": "^7.1.22",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
     "@vitejs/plugin-react-refresh": "^1.3.5",
+    "concurrently": "^7.0.0",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
