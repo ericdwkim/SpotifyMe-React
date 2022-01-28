@@ -1,18 +1,18 @@
 import { ActionType } from '../action-types';
 
 interface CreateAction {
-  type: ActionType.CREATE;
-  payload: array; // must contain account_id, username, user_email, user_password (hashed?)
+  type: ActionType.GET_ACCOUNT;
+  payload: Array<object>; // must contain account_id, username, user_email, user_password (hashed?)
 }
 
 interface DeleteAction {
-  type: ActionType.DELETE;
-  payload: array; // must contain account_id, username, user_email, user_password (hashed?)
+  type: ActionType.DELETE_ACCOUNT;
+  payload: Array<object>; // must contain account_id, username, user_email, user_password (hashed?)
 }
 
 interface UpdateAction {
-  type: ActionType.UPDATE;
-  payload: array; // must contain account_id, username, user_email, user_password (hashed?)
+  type: ActionType.EDIT_ACCOUNT;
+  payload: Array<object>; // must contain account_id, username, user_email, user_password (hashed?)
 }
 
 // action must be Account type with payload of type array?
