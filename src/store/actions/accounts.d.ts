@@ -1,7 +1,7 @@
 import { ActionType } from '../action-types';
 
 interface CreateAction {
-  type: ActionType.GET_ACCOUNT;
+  type: ActionType.ADD_ACCOUNT;
   payload: Array<object>; // must contain account_id, username, user_email, user_password (hashed?)
 }
 
@@ -11,7 +11,7 @@ interface DeleteAction {
 }
 
 interface UpdateAction {
-  type: ActionType.EDIT_ACCOUNT;
+  type: ActionType.UPDATE_ACCOUNT;
   payload: Array<object>; // must contain account_id, username, user_email, user_password (hashed?)
 }
 

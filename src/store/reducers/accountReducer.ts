@@ -51,7 +51,7 @@ const initialState = {
 // function accountReducer(state: Array<objeject> = initialState, action: Action) {
 function accountReducer(state = initialState, action: Action) {
   switch (action.type) {
-    case ActionType.GET_ACCOUNT:
+    case ActionType.ADD_ACCOUNT:
       return {
         ...state,
         // update state copy
@@ -63,7 +63,7 @@ function accountReducer(state = initialState, action: Action) {
         // update state copy
         accounts: [...state.accounts.slice(action.payload)],
       };
-    case ActionType.EDIT_ACCOUNT:
+    case ActionType.UPDATE_ACCOUNT:
       return; /* logic to create account */
     default:
       return state;
