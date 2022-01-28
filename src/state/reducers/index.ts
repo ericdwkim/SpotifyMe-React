@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import accountReducer from './accountReducer';
-// TODO:  import all other reducers 
 
+import accountReducer from './accountReducer';
+// TODO:  import all other reducers
 
 const reducers = combineReducers({
-    // reducer k,v pairs
-    account: accountReducer
-    // artist: artistReducer
+  // reducer k,v pairs
+  account: accountReducer,
+  // artist: artistReducer
 });
 
 // produces the following state object:
@@ -20,4 +20,4 @@ const reducers = combineReducers({
     }
 }
 */
-export default reducers
+export default reducers;

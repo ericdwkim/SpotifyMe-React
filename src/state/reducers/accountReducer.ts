@@ -1,5 +1,6 @@
 // import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
 import { Action } from 'redux';
+
 import { ActionType } from '../action-types';
 import { Accounts } from '../actions/accounts';
 
@@ -43,23 +44,21 @@ accounts: [
 ]
 
 */
-//type 
+//type
 type AccountsProps = {
-  account_id: number,
-  username: string,
-  user_email: string,
-  user_password: string
-}
-
+  account_id: number;
+  username: string;
+  user_email: string;
+  user_password: string;
+};
 
 // empty array (of Accounts type objects) initialized
-const initialState : {accounts: AccountsProps[] } ={
+const initialState: { accounts: AccountsProps[] } = {
   accounts: [],
 };
 
-
 function accountReducer(state = initialState, action: Action) {
-// function accountReducer(state = initialState, action: Action) {
+  // function accountReducer(state = initialState, action: Action) {
   switch (action.type) {
     case ActionType.ADD_ACCOUNT:
       return {
