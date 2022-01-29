@@ -1,4 +1,4 @@
-export enum ActionType {
+export enum Account {
   ADD_ACCOUNT = 'ADD_ACCOUNT',
   DELETE_ACCOUNT = 'DELETE_ACCOUNT',
   UPDATE_ACCOUNT = 'UPDATE_ACCOUNT',

@@ -1,13 +1,13 @@
 import { Dispatch } from 'redux';
 
-import { ActionType } from '../action-types';
+import { Account } from '../types/Account';
 
 /* TODO */
 
 const addAccount = (account: Array) => {
   return (dispatch: Dispatch) => {
     dispatch({
-      type: ActionType.ADD_ACCOUNT,
+      type: Account.ADD_ACCOUNT,
       payload: account,
     });
   };

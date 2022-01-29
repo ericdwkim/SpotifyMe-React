@@ -1,29 +1,6 @@
 // import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
-import { Action } from 'redux';
-
-import { ActionType } from '../action-types';
-import { Accounts } from '../actions/accounts';
-
-// empty array initialized
-// const initialState = {
-//   accounts: []
-// };
-
-// const reducer = (state: object = initialState, action: Action) => {
-//   switch (action.type) {
-//     case ActionType.GET_ACCOUNT:
-//       return state + action.payload; // add new account object to default state
-//     case ActionType.DELETE_ACCOUNT:
-//       return state; // delete account object
-//     case ActionType.EDIT_ACCOUNT:
-//       return; /* logic to create account */
-//     default:
-//       return state;
-//   }
-// };
-// export default reducer;
-
-////////////////////////////////////////////////////////////////////
+import { Account } from '../types/Account';
+import { AccountActionTypes } from '../types/actions';
 
 /*
 Example array of account objects
@@ -44,35 +21,22 @@ accounts: [
 ]
 
 */
-//type
-type AccountsProps = {
-  account_id: number;
-  username: string;
-  user_email: string;
-  user_password: string;
-};
 
-// empty array (of Accounts type objects) initialized
-const initialState: { accounts: AccountsProps[] } = {
-  accounts: [],
-};
+const accountsReducerDefaultState: Account[] = [];
 
-function accountReducer(state = initialState, action: Action) {
-  // function accountReducer(state = initialState, action: Action) {
+function accountReducer(state = accountsReducerDefaultState, action: AccountActionTypes) {
   switch (action.type) {
-    case ActionType.ADD_ACCOUNT:
+    case Account.ADD_ACCOUNT:
+      return {
+        ...state, //default state
+        accounts: state.push(action.payload), // add new account to Account[]
+      };
+    case Account.DELETE_ACCOUNT:
       return {
         ...state,
-        // update state copy
-        accounts: [...state.accounts, action.payload],
+        accounts: [state.slice(action.payload)],
       };
-    case ActionType.DELETE_ACCOUNT:
-      return {
-        ...state,
-        // update state copy
-        accounts: [...state.accounts.slice(action.payload)],
-      };
-    case ActionType.UPDATE_ACCOUNT:
+    case Account.UPDATE_ACCOUNT:
       return; /* logic to create account */
     default:
       return state;

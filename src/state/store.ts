@@ -1,20 +1,24 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { ActionType } from './action-types';
-import accountReducer from './reducers/accountReducer';
+import { Account } from './types/Account';
+import accountReducer  from './reducers/accountReducer';
 
-// const store = configureStore({ reducer: accountReducer})
-
-export default configureStore({
+const store = configureStore({ 
   reducer: {
     account: accountReducer,
   },
 });
 
-console.log(store.getState());
+// export default configureStore({
+//   reducer: {
+//     account: accountReducer,
+//   },
+// });
+
+// console.log(store.getState());
 // expected output: { accounts: [] }
 
-store.dispatch({ type: ActionType.ADD_ACCOUNT });
+store.dispatch({ type: Account.ADD_ACCOUNT });
 
 //console.log(store.getState())
 // expected output: { accounts: [
