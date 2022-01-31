@@ -1,7 +1,6 @@
 // import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
 import { Account } from '../types/Account';
-import { AccountActionTypes } from '../types/actions';
-
+import { AccountActionTypes, IAccount } from '../types/actions';
 /*
 Example array of account objects
 accounts: [
@@ -24,22 +23,27 @@ accounts: [
 
 const accountsReducerDefaultState: Account[] = [];
 
-function accountReducer(state = accountsReducerDefaultState, action: AccountActionTypes) {
-  switch (action.type) {
-    case Account.ADD_ACCOUNT:
-      return {
-        ...state, //default state
-        accounts: state.push(action.payload), // add new account to Account[]
-      };
-    case Account.DELETE_ACCOUNT:
-      return {
-        ...state,
-        accounts: [state.slice(action.payload)],
-      };
-    case Account.UPDATE_ACCOUNT:
-      return; /* logic to create account */
-    default:
-      return state;
-  }
+const  accountReducer = (
+    state = accountsReducerDefaultState, 
+    action: AccountActionTypes
+    ) => {
+    switch (action.type) {
+      case IAccount.ADD_ACCOUNT:
+        return {
+          ...state, //default state
+          accounts: state.push(action.payload), // add new account to Account[]
+        };
+      case IAccount.DELETE_ACCOUNT:
+        return {
+          ...state,
+          accounts: state.filter(( { account_id } ) => account_id !== action.Account.account_id),
+        };
+      case IAccount.UPDATE_ACCOUNT:
+        return state.map(account => {
+          if (account.account_id === action.account_id)
+        })
+      default:
+        return state;
+    }
 }
 export default accountReducer;

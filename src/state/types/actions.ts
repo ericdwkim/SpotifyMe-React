@@ -1,18 +1,25 @@
-import { Account } from './Account';
-// import { Account } from './index'
+import { Account } from './Account'
+
+export enum IAccount {
+  ADD_ACCOUNT = 'ADD_ACCOUNT',
+  DELETE_ACCOUNT = 'DELETE_ACCOUNT',
+  UPDATE_ACCOUNT = 'UPDATE_ACCOUNT',
+}
 
 interface CreateAction {
-  type: Account.ADD_ACCOUNT;
-  payload: Array<Account>; // must contain account_id, username, user_email, user_password (hashed?)
+  type: IAccount.ADD_ACCOUNT;
+  payload: Account; // must contain account_id, username, user_email, user_password (hashed?)
 }
 
 interface DeleteAction {
-  type: Account.DELETE_ACCOUNT;
-  payload: Array<object>; // must contain account_id, username, user_email, user_password (hashed?)
+  // account_id: string;
+  type: IAccount.DELETE_ACCOUNT;
+  payload: Account; // must contain account_id, username, user_email, user_password (hashed?)
 }
 
 interface UpdateAction {
-  type: Account.UPDATE_ACCOUNT;
+  account_id: string;
+  type: IAccount.UPDATE_ACCOUNT;
   payload: Array<object>; // must contain account_id, username, user_email, user_password (hashed?)
 }
 
